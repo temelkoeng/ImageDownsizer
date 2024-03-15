@@ -46,6 +46,7 @@ namespace ImageDownsizer
             this.initialImageBox.Location = new System.Drawing.Point(12, 12);
             this.initialImageBox.Name = "initialImageBox";
             this.initialImageBox.Size = new System.Drawing.Size(451, 166);
+            this.initialImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.initialImageBox.TabIndex = 0;
             this.initialImageBox.TabStop = false;
             // 
@@ -65,6 +66,7 @@ namespace ImageDownsizer
             this.uploadImageButton.TabIndex = 2;
             this.uploadImageButton.Text = "Upload";
             this.uploadImageButton.UseVisualStyleBackColor = true;
+            this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
             // 
             // saveButton
             // 
