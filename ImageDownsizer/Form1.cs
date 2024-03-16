@@ -96,13 +96,17 @@ namespace ImageDownsizer
                 return;
             }
 
-            long bitmapToCollorArrResult = 0;
-            long resizeResult = 0;
-            long collorArrayToBitmapTime = 0;
+            long collorArrayToBitmapTime;
+            long resizeResult;
+            long bitmapToCollorArrResult;
 
             if (isConsequential)
             {
                 (bitmapToCollorArrResult, resizeResult, collorArrayToBitmapTime) = ProcessBilinearSequential(selectedImage, downscalePer);
+            }
+            else
+            {
+                (bitmapToCollorArrResult, resizeResult, collorArrayToBitmapTime) = ProcessBilinearParallel(selectedImage, downscalePer);
             }
 
             bitmapToColorArrLbl.Text = bitmapToCollorArrResult.ToString();
@@ -110,9 +114,41 @@ namespace ImageDownsizer
             colorArrToBitmapLbl.Text = collorArrayToBitmapTime.ToString();
         }
 
+        private Tuple<long, long, long> ProcessBilinearParallel(Bitmap selectedImage, double downscaleFactor)
+        {
+            long bitmapToColorArrayTime, resizeTime, colorArrayToBitmapTime;
+
+            var colorArrayResult = MeasureExecutionTime(() =>
+            {
+                var array = BitmapHelper.BitmapToColorArray(selectedImage);
+                return array;
+            }, out bitmapToColorArrayTime);
+
+            var resizedImageResult = MeasureExecutionTime(() =>
+            {
+                var image = BilinearInterpolator.ResizeImageParallel(colorArrayResult, downscaleFactor);
+                return image;
+            }, out resizeTime);
+
+            var result = MeasureExecutionTime(() =>
+            {
+                var resultBitmap = BitmapHelper.ColorArrayToBitmap(resizedImageResult);
+                downScaledImageBox.Image = resultBitmap;
+                return resultBitmap;
+            }, out colorArrayToBitmapTime);
+
+            return Tuple.Create(bitmapToColorArrayTime, resizeTime, colorArrayToBitmapTime);
+        }
+
+
         private void consequentialButton_Click(object sender, EventArgs e)
         {
             Downsize(true);
+        }
+
+        private void parallelButton_Click(object sender, EventArgs e)
+        {
+            Downsize(false);
         }
     }
 }

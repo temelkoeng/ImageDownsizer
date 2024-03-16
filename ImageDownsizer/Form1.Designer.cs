@@ -114,6 +114,7 @@ namespace ImageDownsizer
             this.parallelButton.TabIndex = 8;
             this.parallelButton.Text = "Parallel";
             this.parallelButton.UseVisualStyleBackColor = true;
+            this.parallelButton.Click += new System.EventHandler(this.parallelButton_Click);
             // 
             // bitmapToColorArrLbl
             // 
