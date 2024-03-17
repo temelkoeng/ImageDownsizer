@@ -32,7 +32,6 @@ namespace ImageDownsizer
             this.initialImageBox = new System.Windows.Forms.PictureBox();
             this.downScaledImageBox = new System.Windows.Forms.PictureBox();
             this.uploadImageButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
             this.downscalePerTextbox = new System.Windows.Forms.TextBox();
             this.downscalePerLabel = new System.Windows.Forms.Label();
             this.consequentialButton = new System.Windows.Forms.Button();
@@ -70,15 +69,6 @@ namespace ImageDownsizer
             this.uploadImageButton.Text = "Upload";
             this.uploadImageButton.UseVisualStyleBackColor = true;
             this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
-            // 
-            // saveButton
-            // 
-            this.saveButton.Location = new System.Drawing.Point(106, 479);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(201, 53);
-            this.saveButton.TabIndex = 3;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
             // 
             // downscalePerTextbox
             // 
@@ -119,7 +109,7 @@ namespace ImageDownsizer
             // bitmapToColorArrLbl
             // 
             this.bitmapToColorArrLbl.AutoSize = true;
-            this.bitmapToColorArrLbl.Location = new System.Drawing.Point(15, 345);
+            this.bitmapToColorArrLbl.Location = new System.Drawing.Point(106, 366);
             this.bitmapToColorArrLbl.Name = "bitmapToColorArrLbl";
             this.bitmapToColorArrLbl.Size = new System.Drawing.Size(145, 17);
             this.bitmapToColorArrLbl.TabIndex = 9;
@@ -128,7 +118,7 @@ namespace ImageDownsizer
             // resizingLbl
             // 
             this.resizingLbl.AutoSize = true;
-            this.resizingLbl.Location = new System.Drawing.Point(15, 381);
+            this.resizingLbl.Location = new System.Drawing.Point(140, 445);
             this.resizingLbl.Name = "resizingLbl";
             this.resizingLbl.Size = new System.Drawing.Size(62, 17);
             this.resizingLbl.TabIndex = 10;
@@ -137,7 +127,7 @@ namespace ImageDownsizer
             // colorArrToBitmapLbl
             // 
             this.colorArrToBitmapLbl.AutoSize = true;
-            this.colorArrToBitmapLbl.Location = new System.Drawing.Point(15, 418);
+            this.colorArrToBitmapLbl.Location = new System.Drawing.Point(106, 530);
             this.colorArrToBitmapLbl.Name = "colorArrToBitmapLbl";
             this.colorArrToBitmapLbl.Size = new System.Drawing.Size(142, 17);
             this.colorArrToBitmapLbl.TabIndex = 11;
@@ -156,7 +146,6 @@ namespace ImageDownsizer
             this.Controls.Add(this.consequentialButton);
             this.Controls.Add(this.downscalePerLabel);
             this.Controls.Add(this.downscalePerTextbox);
-            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.uploadImageButton);
             this.Controls.Add(this.downScaledImageBox);
             this.Controls.Add(this.initialImageBox);
@@ -175,7 +164,6 @@ namespace ImageDownsizer
         private System.Windows.Forms.PictureBox initialImageBox;
         private System.Windows.Forms.PictureBox downScaledImageBox;
         private System.Windows.Forms.Button uploadImageButton;
-        private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.TextBox downscalePerTextbox;
         private System.Windows.Forms.Label downscalePerLabel;
         private System.Windows.Forms.Button consequentialButton;
